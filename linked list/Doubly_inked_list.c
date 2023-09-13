@@ -27,8 +27,10 @@ int menu()
     printf("\n8) Count node");
     printf("\n9) Traiverse left to right.");
     printf("\n10) Traiverse right to lrft.");
+    printf("\n11) Search Element");
+    printf("\n12) Sort List");
     printf("\n----------------------------");
-    printf("\n11) Exit");
+    printf("\n13) Exit");
     printf("\n----------------------------");
     printf("\nEnter a Choice : ");
     scanf("%d", &no);
@@ -285,6 +287,10 @@ int main()
             TravelsRightToLeft();
             getch();
             break;
+        case 11:
+            break;
+            case 12:
+                break;
         default:
             exit(0);
         }
