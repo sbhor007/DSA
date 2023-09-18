@@ -25,8 +25,9 @@ int menu()
     printf("\n8) Count nodes.");
     printf("\n9) Display List.");
     printf("\n10) reverse List.");
+    printf("\n11) Search");
     printf("\n-----------------------------");
-    printf("\n11) exit.");
+    printf("\n12) exit.");
     printf("\n-------------------------------");
     printf("\nEnter a Choise : ");
     scanf("%d", &no);
@@ -247,9 +248,24 @@ void reverseList()
         getch();
     }
 }
+int search(key)
+{
+    int flag = 0;
+    node *temp = start;
+    if(start != NULL)
+    {
+        while(temp != NULL)
+            {
+                if(temp->data == key)
+                    return flag = 1;
+                temp = temp->next;
+            }
+    }
+    return flag;
+}
 int main()
 {
-    int no;
+    int no,result,key;
     while (1)
     {
         switch (menu())
@@ -286,6 +302,15 @@ int main()
             break;
         case 10:
             reverseList();
+            break;
+        case 11:
+            printf("\nEnter element to search : ");
+            scanf("%d",&key);
+            result = search(key);
+            if(result == 1)
+                printf("\nElement Found.");
+            else
+                printf("\nElement Not Found.");
             break;
         default:
             exit(0);
