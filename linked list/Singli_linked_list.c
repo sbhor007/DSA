@@ -26,8 +26,9 @@ int menu()
     printf("\n9) Display List.");
     printf("\n10) reverse List.");
     printf("\n11) Search");
+    printf("\n12 swap nth and mth element");
     printf("\n-----------------------------");
-    printf("\n12) exit.");
+    printf("\n13) exit.");
     printf("\n-------------------------------");
     printf("\nEnter a Choise : ");
     scanf("%d", &no);
@@ -263,6 +264,50 @@ int search(key)
     }
     return flag;
 }
+void swap()
+{
+    node *nth, *mth, *temp;
+    int t, ctr = counter();
+    int n, m;
+    if (start == NULL)
+    {
+        printf("\nEmpty List.......");
+    }
+    else
+    {
+        printf("\nEnter a first element position : ");
+        scanf("%d", &m);
+        if (m > 0 && m <= ctr)
+        {
+            printf("\nEnter the second element position : ");
+            scanf("%d", &n);
+            if (n > 0 && n <= ctr && m != n)
+            {
+                m--, n--; // alwas  start position. travel loop properly
+                nth = start;
+                for (int i = 1; i <= n; i++)
+                    nth = nth->next;
+                mth = start;
+                for (int j = 1; j <= m; j++)
+                    mth = mth->next;
+
+                t = nth->data;
+                nth->data = mth->data;
+                mth->data = t;
+                printf("\n Swaping compleated......");
+            }
+            else
+            {
+                printf("\ninvalid position");
+            }
+        }
+        else
+        {
+            printf("\ninvalid position");
+        }
+    }
+    getch();
+}
 int main()
 {
     int no,result,key;
@@ -312,6 +357,8 @@ int main()
             else
                 printf("\nElement Not Found.");
             break;
+        case 12:
+            swap();
         default:
             exit(0);
         }
