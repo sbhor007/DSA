@@ -7,7 +7,7 @@ void selectionSort(int a[], int no)
     for (i = i; i < no; i++)
     {
         int min = i;
-        for (j = 0; j < no; j++)
+        for (j = i+1; j < no; j++)
         {
             if (a[j] < a[min])
             {
